@@ -1,15 +1,5 @@
 <h1><font color='black'>Joining data in Pandas</font></h1>
 
-<br>
-
-<br>
-
-<p align="center" width="100%">
-    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
-</p>
-
-<br>
-
 <h3><font color='grey'>Type of joins with <code>.merge()</code></font></h3>
 
 <p>Combining data points across multiple sources is made possible using <code>merge</code>. With a common value, such as a <code>unique_id</code>, relationships can be formed between tables allowing additional data points to be retrieved. The nature of the join (<code>inner/left/right/outer</code>) will impact how data is pulled from one table to another, i.e. what is included and excluded. <code>Semi-</code> and <code>anti-</code> joins are explored are more complex layers of filtering against other tables. Adjoining tables can also have varying relationships, such as a one-to-one relationship where adjoining tables contain one observation per id, although many others exist. These relationships can be validated to anticipate how results will be impacted.</p>
@@ -25,7 +15,7 @@
 <p>Joining time series data can be problematic due to how the data is collected, e.g. apps recording timestamps, events triggering with milisecond differences, or truncated dates not aligning with precise dates. Advanced joining methods help circumvent these issues, allowing joins to take place on close time series fields or to interpolate, or fill in, <code>NaN</code> values with most recent data.<p>
 
 <p align="center" width="100%">
-    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+    <img width="50%" src="Joining_data_in_Pandas/Assets/merge_ordered_1.png">
 </p>
 
 <br>
@@ -37,7 +27,7 @@
 <code>df.query('device_type == "App Android" or device_type == "App iOS"')</code>
 
 <p align="center" width="100%">
-    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+    <img width="22.5%" src="Joining_data_in_Pandas/Assets/query_1.png">
 </p>
 
 <br>
@@ -47,5 +37,5 @@
 <p>Pandas <code>melt</code> function is used to change the DataFrame format from long to tall. This creates a specific format of the DataFrame object where one or more columns work as identifiers and the remaining columns are transformed to two new fields: <code>variable</code> and <code>value</code>.</p>
 
 <p align="center" width="100%">
-    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+    <img width="85%" src="Joining_data_in_Pandas/Assets/melt_1.png">
 </p>
