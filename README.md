@@ -34,6 +34,8 @@
 
 <p>The <code>query</code> method allows DataFrame to be filtered according to the query expression. This is given as a string parameter. The results returned will be the observations where the expression is True. Basic logic operators are applicable, e.g. <code>'> / >= / < / <= / =='</code>, and can be layered with <code>'and / or'</code> criteria.</p>
 
+<code>df.query('device_type == "App Android" or device_type == "App iOS"')</code>
+
 <p align="center" width="100%">
     <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
 </p>
