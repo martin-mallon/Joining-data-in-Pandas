@@ -10,18 +10,40 @@
 
 <br>
 
-<h3><font color='grey'>Pandas basics</font></h3>
+<h3><font color='grey'>Type of joins with <code>.merge()</code></font></h3>
 
-<p>Combining data points across multiple sources is made possible using <code>merge</code>. With a common value, such as a <code>unique_id</code>, relationships can be formed between tables allowing additional data points to be retrieved. Merging data frames is a useful way to access lookup tables where data typically has a one-to-one relationship, like pulling through a user's <code>average_order_value</code> from a neighbouring table. Tables with a one-to-many relationship can be merged to pull through multiple observations, e.g. joining an accounts_table to a <code>pages_viewed</code>. The nature of the join (<code>inner/left/right/outer</code>) will impact what data is filtered and whether a merge will pull through Null values.</p>
+<p>Combining data points across multiple sources is made possible using <code>merge</code>. With a common value, such as a <code>unique_id</code>, relationships can be formed between tables allowing additional data points to be retrieved. The nature of the join (<code>inner/left/right/outer</code>) will impact how data is pulled from one table to another, i.e. what is included and excluded. <code>Semi-</code> and <code>anti-</code> joins are explored are more complex layers of filtering against other tables. Adjoining tables can also have varying relationships, such as a one-to-one relationship where adjoining tables contain one observation per id, although many others exist. These relationships can be validated to anticipate how results will be impacted.</p>
 
-<ul>
-    <li><b><code>pd.DataFrame()</code></b> - Data frames are table structures that contain data. The function <code>csv_to_df</code> reads <code>.csv</code> files and stores the data as data frames to be used later when building merges. The data frame <code>jrny</code> contains digital journey touchpoints for each session which will be used as a primary reference.</li>
-    <br>
-    <li><b><code>df.merge()</code></b> - The <code>merge()</code> method updates the content of two data frames by merging them together, using specified methods, such as fields and the nature of the merge. Depending on data relationships, the resulting merge can produce a one-to-one or one-to-many output.</li>
-    <br>
-    <li><b><code>on='col'</code></b> - Specifies the field(s) the merge will be performed on, e.g. an <code>id</code> field merge requires an <code>id</code>column present in both data frames. Alternatively, if the column names differ between data frames, <code>left_on</code> and <code>right_on</code> are specified.</li>
-    <br>
-    <li><b><code>how='inner/left/right/outer'</code></b> - Describes the nature of the join, with each producing different results. These are explored below.</li>
-</ul>
+<p align="center" width="100%">
+    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+</p>
 
 <br>
+
+<h3><font color='grey'>Fuzzy joins with <code>.merge_ordered()</code> and <code>.merge_asof()</code></font></h3>
+
+<p>Joining time series data can be problematic due to how the data is collected, e.g. apps recording timestamps, events triggering with milisecond differences, or truncated dates not aligning with precise dates. Advanced joining methods help circumvent these issues, allowing joins to take place on close time series fields or to interpolate, or fill in, <code>NaN</code> values with most recent data.<p>
+
+<p align="center" width="100%">
+    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+</p>
+
+<br>
+
+<h3><font color='grey'>Filtering with <code>.query()</code></font></h3>
+
+<p>The <code>query</code> method allows DataFrame to be filtered according to the query expression. This is given as a string parameter. The results returned will be the observations where the expression is True. Basic logic operators are applicable, e.g. <code>'> / >= / < / <= / =='</code>, and can be layered with <code>'and / or'</code> criteria.</p>
+
+<p align="center" width="100%">
+    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+</p>
+
+<br>
+
+<h3><font color='grey'>Unpivoting with <code>.melt()</code></font></h3>
+
+<p>Pandas <code>melt</code> function is used to change the DataFrame format from long to tall. This creates a specific format of the DataFrame object where one or more columns work as identifiers and the remaining columns are transformed to two new fields: <code>variable</code> and <code>value</code>.</p>
+
+<p align="center" width="100%">
+    <img width="50%" src="Joining_data_in_Pandas/Assets/inner_join_1.png">
+</p>
